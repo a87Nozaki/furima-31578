@@ -20,17 +20,17 @@
 
 ## items テーブル
 
-| Column     | Type       | Options     |
-| ---------- | ---------- | ----------- |
-| name       | string     | null: false |
-| explain    | text       | null: false |
-| category   | integer    | null: false |
-| status     | integer    | null: false |
-| burden     | integer    | null: false |
-| prefecture | integer    | null: false |
-| day        | integer    | null: false |
-| price      | integer    | null: false |
-| user       | references |             |
+| Column     | Type       | Options           |
+| ---------- | ---------- | ----------------- |
+| name       | string     | null: false       |
+| explain    | text       | null: false       |
+| category   | integer    | null: false       |
+| status     | integer    | null: false       |
+| burden     | integer    | null: false       |
+| prefecture | integer    | null: false       |
+| day        | integer    | null: false       |
+| price      | integer    | null: false       |
+| user       | references | foreign_key :true |
 
 ### Association
 
@@ -39,10 +39,10 @@
 
 ## purchases テーブル
 
-| Column | Type       | Options     |
-| ------ | ---------- | ----------- |
-| user   | references |             |
-| item   | references |             |
+| Column | Type       | Options           |
+| ------ | ---------- | ----------------- |
+| user   | references | foreign_key :true |
+| item   | references | foreign_key :true |
 
 ### Association
 
@@ -52,15 +52,15 @@
 
 ## addresses テーブル
 
-| Column     | Type       | Options     |
-| ---------- | ---------- | ----------- |
-| postcode   | string     | null: false |
-| prefecture | integer    | null: false |
-| city       | string     | null: false |
-| block      | string     | null: false |
-| building   | string     |             |
-| phone      | string     | null: false |
-| purchase   | references |             |
+| Column     | Type       | Options           |
+| ---------- | ---------- | ----------------- |
+| postcode   | string     | null: false       |
+| prefecture | integer    | null: false       |
+| city       | string     | null: false       |
+| block      | string     | null: false       |
+| building   | string     |                   |
+| phone      | string     | null: false       |
+| purchase   | references | foreign_key :true |
 
 ### Association
 
