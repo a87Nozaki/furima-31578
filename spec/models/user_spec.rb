@@ -28,6 +28,11 @@ describe User do
         anther_user.valid?
         expect(anther_user.errors.full_messages).to include("Email has already been taken")
       end
+      it 'emailが@マークを含んでないと登録できない' do
+        @user.email = 'abcgmail.com'
+        @user.valid?
+        expect(@user.errors.full_messages).to include("Email is invalid")
+      end
       it 'passwordが空では登録できない' do
         @user.password = ''
         @user.valid?
