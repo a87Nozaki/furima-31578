@@ -26,29 +26,29 @@ describe Item do
         expect(@item.errors.full_messages).to include("Explain can't be blank")
       end
       it 'category_idが1の場合保存できない' do
-        @item.category_id = nil
+        @item.category_id = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include("Category can't be blank")
+        expect(@item.errors.full_messages).to include("Category must be other than 1")
       end
       it 'status_idが1の場合登録できない' do
-        @item.status_id = nil
+        @item.status_id = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include("Status can't be blank")
+        expect(@item.errors.full_messages).to include("Status must be other than 1")
       end
       it 'burden_idが1の場合登録できない' do
-        @item.burden_id = nil
+        @item.burden_id = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include("Burden can't be blank")
+        expect(@item.errors.full_messages).to include("Burden must be other than 1")
       end
       it 'prefecture_idが1の場合登録できない' do
-        @item.prefecture_id = nil
+        @item.prefecture_id = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include("Prefecture can't be blank")
+        expect(@item.errors.full_messages).to include("Prefecture must be other than 1")
       end
       it 'day_idが1の場合登録できない' do
-        @item.day_id = nil
+        @item.day_id = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include("Day can't be blank")
+        expect(@item.errors.full_messages).to include("Day must be other than 1")
       end
       it 'priceが空だと登録できない' do
         @item.price = nil
