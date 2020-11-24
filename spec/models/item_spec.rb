@@ -25,27 +25,27 @@ describe Item do
         @item.valid?
         expect(@item.errors.full_messages).to include("Explain can't be blank")
       end
-      it 'categoryが空だと保存できない' do
+      it 'category_idが1の場合保存できない' do
         @item.category_id = nil
         @item.valid?
         expect(@item.errors.full_messages).to include("Category can't be blank")
       end
-      it 'statusが空だと登録できない' do
+      it 'status_idが1の場合登録できない' do
         @item.status_id = nil
         @item.valid?
         expect(@item.errors.full_messages).to include("Status can't be blank")
       end
-      it 'burdenが空だと登録できない' do
+      it 'burden_idが1の場合登録できない' do
         @item.burden_id = nil
         @item.valid?
         expect(@item.errors.full_messages).to include("Burden can't be blank")
       end
-      it 'prefectureが空だと登録できない' do
+      it 'prefecture_idが1の場合登録できない' do
         @item.prefecture_id = nil
         @item.valid?
         expect(@item.errors.full_messages).to include("Prefecture can't be blank")
       end
-      it 'dayが空だと登録できない' do
+      it 'day_idが1の場合登録できない' do
         @item.day_id = nil
         @item.valid?
         expect(@item.errors.full_messages).to include("Day can't be blank")
