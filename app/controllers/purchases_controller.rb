@@ -3,7 +3,11 @@ class PurchasesController < ApplicationController
   before_action :item_find, only: [:index, :create]
 
   def index
-    @user_purchase = Order.new
+    if current_user.id == @item.user_id || @item.purchase
+      redirect_to root_path
+    else
+      @user_purchase = Order.new
+    end
   end
 
   def create
