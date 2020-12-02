@@ -39,6 +39,11 @@ RSpec.describe Order, type: :model do
       @order.valid?
       expect(@order.errors.full_messages).to include("Prefecture を入力してください")
     end
+    it 'prefecture_idが空の場合登録できない' do
+      @order.prefecture_id = nil
+      @order.valid?
+      expect(@order.errors.full_messages).to include("Prefecture を入力してください")
+    end
     it 'cityが空だと保存できない' do
       @order.city = nil
       @order.valid?
@@ -56,6 +61,11 @@ RSpec.describe Order, type: :model do
     end
     it 'phoneが12桁以上だと登録できない' do
       @order.phone = 000000000000
+      @order.valid?
+      expect(@order.errors.full_messages).to include("Phone は11桁以内で入力してください")
+    end
+    it 'phoneにハイフンが入ってれば登録できない' do
+      @order.phone = 000-0000-0000
       @order.valid?
       expect(@order.errors.full_messages).to include("Phone は11桁以内で入力してください")
     end
