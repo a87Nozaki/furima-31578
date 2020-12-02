@@ -1,4 +1,4 @@
-class Order < ApplicationRecord
+class Order 
   include ActiveModel::Model
   attr_accessor :user_id, :item_id, :postcode, :prefecture_id, :city, :block, :building, :phone, :token
 
