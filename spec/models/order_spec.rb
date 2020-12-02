@@ -60,12 +60,12 @@ RSpec.describe Order, type: :model do
       expect(@order.errors.full_messages).to include("Phone can't be blank")
     end
     it 'phoneが12桁以上だと登録できない' do
-      @order.phone = 000000000000
+      @order.phone = "000000000000"
       @order.valid?
       expect(@order.errors.full_messages).to include("Phone は11桁以内で入力してください")
     end
     it 'phoneにハイフンが入ってれば登録できない' do
-      @order.phone = 000-0000-0000
+      @order.phone = "000-0000-0000"
       @order.valid?
       expect(@order.errors.full_messages).to include("Phone は11桁以内で入力してください")
     end
